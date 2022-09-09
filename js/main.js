@@ -1,20 +1,3 @@
-const searchEl = document.querySelector('.search');
-const searchInputEl = searchEl.querySelector('input');
-
-searchEl.addEventListener('click', function () {
-    searchInputEl.focus();
-});
-
-searchInputEl.addEventListener('focus', function () {
-    searchEl.classList.add('focused');
-    searchInputEl.setAttribute('placeholder', '통합검색');
-});
-
-searchInputEl.addEventListener('blur', function () {
-    searchEl.classList.remove('focused');
-    searchInputEl.setAttribute('placeholder', '');
-});
-
 const badgeEl = document.querySelector('header .badges');
 const toTopEl = document.querySelector('#to-top');
 
@@ -22,7 +5,7 @@ window.addEventListener('scroll', _.throttle(function() {
     console.log(window.scrollY);
     if (window.scrollY > 500) {
         // Badge 요소 숨기기
-        // gsap.to(���, ���ӽð�, �ɼ�);
+        // gsap.to(요소, 지속시간, 옵션);
         gsap.to(badgeEl, .6, {
             opacity: 0,
             display: 'none'
@@ -43,7 +26,7 @@ window.addEventListener('scroll', _.throttle(function() {
         });
     }
 }, 300));
-// _.throttle(�Լ�, �ð�)
+// _.throttle(함수, 시간)
 
 toTopEl.addEventListener('click', function () {
     gsap.to(window, .7, {
@@ -60,7 +43,7 @@ fadeEls.forEach(function (fadeEl, index) {
 });
 
 
-// new Swiper(?????????, ??????)
+// new Swiper(선택자, 옵션)
 new Swiper('.notice-line .swiper', {
     direction: 'vertical',
     autoplay: true,
@@ -146,6 +129,3 @@ spyEls.forEach(function (spyEl) {
         .setClassToggle(spyEl, 'show')
         .addTo(new ScrollMagic.Controller());
 });
-
-const thisYear = document.querySelector('.this-year');
-thisYear.textContent = new Date().getFullYear();
